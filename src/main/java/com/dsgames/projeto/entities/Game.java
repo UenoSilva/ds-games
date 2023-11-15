@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +31,11 @@ public class Game {
 	private String platforms;
 	private Double score;
 	private String imgUrl;
+	
+	@Size(max = 150, message = "A descrisção deve ter no máximo {max} caracteres.")
 	private String shortDescription;
-	private String longDescripition;
+	
+	@Size(max = 500, message = "A descrisção deve ter no máximo {max} caracteres.")
+	private String longDescription;
 
 }
