@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dsgames.projeto.dto.GameDTO;
 import com.dsgames.projeto.dto.GameMinDTO;
 import com.dsgames.projeto.entities.Game;
+import com.dsgames.projeto.projection.GameMinProjection;
 import com.dsgames.projeto.repository.GameRepository;
 import com.dsgames.projeto.repository.service.GameService;
 
@@ -31,6 +32,13 @@ public class GameServiceImpl implements GameService{
 	public GameDTO get(Long id) {
 		Game res = gameRepository.findById(id).get();
 		return new GameDTO(res);
+	}
+
+	@Override
+	public List<GameMinDTO> getAllListas(Long id) {
+		List<GameMinProjection> res = gameRepository.searchByList(id);
+		List<GameMinDTO> games = res.stream().map(x -> new GameMinDTO(x)).toList();
+		return games;
 	}
 
 }
