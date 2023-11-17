@@ -14,8 +14,8 @@ import com.dsgames.projeto.repository.GameRepository;
 import com.dsgames.projeto.repository.service.GameService;
 
 @Service
-public class GameServiceImpl implements GameService{
-	
+public class GameServiceImpl implements GameService {
+
 	@Autowired
 	private GameRepository gameRepository;
 
