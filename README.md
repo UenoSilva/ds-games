@@ -13,6 +13,8 @@
 * Postman
 * Postgresql
 * Docker
+* Git
+* GitHub
 
 ## Descrisção
 
